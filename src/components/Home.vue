@@ -1,16 +1,17 @@
 <template>
 	<el-container>
-	  <Header />
+	  <el-header><Header /></el-header>
 	  <el-main>Main</el-main>
-	  <el-footer>Footer</el-footer>
+	  <el-footer><Footer /></el-footer>
 	</el-container>
 </template>
 
 <script>
-	import Header from '@/components/common/Header.vue'
+	import Header from '@/components/common/Header'
+	import Footer from '@/components/common/Footer'
 	export default{
 		name: "Home",
-		components:{Header}
+		components:{Header, Footer}
 	}
 </script>
 
