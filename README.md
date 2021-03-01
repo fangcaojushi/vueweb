@@ -1,6 +1,6 @@
 # vueweb
 
-> create web site to test
+> create web site 
 
 ## Build Setup
 
