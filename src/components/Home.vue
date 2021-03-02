@@ -1,7 +1,7 @@
 <template>
 	<el-container>
 	  <el-header><Header /></el-header>
-	  <el-main>Main</el-main>
+	  <el-main>{{$t('home.main')}}</el-main>
 	  <el-footer><Footer /></el-footer>
 	</el-container>
 </template>
@@ -16,10 +16,11 @@
 </script>
 
 <style scoped="scoped">
-	.el-footer {
-	    background-color: #B3C0D1;
+	.el-footer,.el-header {
+	    background-color: #545c64;
 	    color: #333;
 	    text-align: center;
 	    line-height: 60px;
+		height: 60px;
 	  }
 </style>
