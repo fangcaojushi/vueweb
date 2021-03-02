@@ -31,7 +31,7 @@
 			  </el-menu>
 		  </el-col>
 		  <el-col :span="4" align="right">
-			  <el-select v-model="value" placeholder="请选择" @change="changeLanguage()" class="maxlangW">
+			  <el-select v-model="value" placeholder="请选择" @change="changeLanguage" class="maxlangW">
 			  <el-option
 				v-for="item in langs"
 				:key="item.value"
@@ -64,7 +64,6 @@
 	        console.log(key, keyPath);
 	      },
 		  changeLanguage() {
-			  debugger
 			  this.$i18n.locale=='cn'?this.$i18n.locale='en':this.$i18n.locale='cn'   //设置中英文模式
 			  this.$i18n.locale = this.value
 			  this.language = this.value
