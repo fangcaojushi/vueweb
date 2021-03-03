@@ -26,8 +26,8 @@
 			        <el-menu-item index="2-4-3">选项3</el-menu-item>
 			      </el-submenu>
 			    </el-submenu>
-			    <el-menu-item index="3" disabled>{{$t('menu.guest')}}</el-menu-item>
-			    <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">{{$t('menu.meeting')}}</a></el-menu-item>
+			    <el-menu-item index="3" disabled>{{$t('menu.product')}}</el-menu-item>
+			    <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">{{$t('menu.about')}}</a></el-menu-item>
 			  </el-menu>
 		  </el-col>
 		  <el-col :span="4" align="right">

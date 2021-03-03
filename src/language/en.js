@@ -5,8 +5,8 @@ module.exports = {
     menu: {
         home:'Home',
         news:'News',
-        guest:'Guest',
-		meeting:'Meeting'
+        product:'Product',
+        about:'About'
     },
 	home:{
 		main:'Main'
