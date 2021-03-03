@@ -13,20 +13,14 @@
 			    background-color="#545c64"
 			    text-color="#fff"
 			    active-text-color="#ffd04b">
-			    <el-menu-item index="1">{{$t('menu.home')}}</el-menu-item>
+			    <el-menu-item index="home">{{$t('menu.home')}}</el-menu-item>
 			    <el-submenu index="2">
 			      <template slot="title">{{$t('menu.news')}}</template>
 			      <el-menu-item index="2-1">选项1</el-menu-item>
 			      <el-menu-item index="2-2">选项2</el-menu-item>
 			      <el-menu-item index="2-3">选项3</el-menu-item>
-			      <el-submenu index="2-4">
-			        <template slot="title">选项4</template>
-			        <el-menu-item index="2-4-1">选项1</el-menu-item>
-			        <el-menu-item index="2-4-2">选项2</el-menu-item>
-			        <el-menu-item index="2-4-3">选项3</el-menu-item>
-			      </el-submenu>
 			    </el-submenu>
-			    <el-menu-item index="3" disabled>{{$t('menu.product')}}</el-menu-item>
+			    <el-menu-item index="3">{{$t('menu.product')}}</el-menu-item>
 			    <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">{{$t('menu.about')}}</a></el-menu-item>
 			  </el-menu>
 		  </el-col>
@@ -59,6 +53,14 @@
 			value: this.$i18n.locale
 	      };
 	    },
+		watch: {
+			$route() {
+			  debugger
+			  if (this.$route.meta.parentPath) {
+				this.pagedefault = this.$route.meta.parentPath; // 实现路由切换
+			  }
+			}
+		  },
 	    methods: {
 	      handleSelect(key, keyPath) {
 	        console.log(key, keyPath);
@@ -81,5 +83,8 @@
 	.logo{
 		width:auto;
 		height: 55px;
+	}
+	.el-menu.el-menu--horizontal {
+	   border-bottom: solid 0px #e6e6e6;
 	}
 </style>
