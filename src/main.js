@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import global_ from './global/Global'
 import ElementUI from 'element-ui'
 import  'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en'
@@ -11,6 +12,7 @@ import VueI18n from 'vue-i18n'
 Vue.use(ElementUI, { locale })
 Vue.use(VueI18n)
 Vue.config.productionTip = false
+Vue.prototype.GLOBAL = global_
 
 const i18n=new VueI18n({
     locale:localStorage.getItem('languageSet')||'cn',   //从localStorage里获取用户中英文选择，没有则默认中文

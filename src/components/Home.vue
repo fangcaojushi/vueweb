@@ -5,8 +5,9 @@
 		</el-header>
 		<el-main>
 			<el-carousel indicator-position="outside">
-				<el-carousel-item v-for="item in 4" :key="item">
-					<h3>{{ item }}</h3>
+				<el-carousel-item v-for="(item,index) in banners" :key="index">
+          <img :src="item.oUrl" />
+					<!-- <h3>{{ index }}</h3> -->
 				</el-carousel-item>
 			</el-carousel>
 		</el-main>
@@ -17,10 +18,23 @@
 </template>
 
 <script>
+  const axios = require('axios')
 	import Header from '@/components/common/Header'
 	import Footer from '@/components/common/Footer'
 	export default {
 		name: "Home",
+    data(){
+      return {
+        banners: [],
+        by:""
+      }
+    },
+    mounted(){
+      axios.get(this.GLOBAL.baseUrl+"/api/webCloudLive/liveMeeting?liveMeetingId=1&lang=cn")
+      .then(res => {
+        this.banners = res.data.banners
+      })
+    },
 		components: {
 			Header,
 			Footer
@@ -46,13 +60,12 @@
 	line-height: 300px;
 	margin: 0;
   }
-  
+
   .el-carousel__item:nth-child(2n) {
 	background-color: #99a9bf;
   }
-  
+
   .el-carousel__item:nth-child(2n+1) {
 	background-color: #d3dce6;
   }
 </style>
-
