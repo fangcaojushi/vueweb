@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<el-row :gutter="20">
-		  <el-col :span="2">
+		  <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
 			  <img src="@/assets/logo.png" class="logo"/>
 		  </el-col>
-		  <el-col :span="18">
+		  <el-col :xs="8" :sm="12" :md="16" :lg="20" :xl="20" class="hidden-xs-only">
 			  <el-menu
 			    :default-active="activeIndex2"
 			    class="el-menu-demo"
@@ -24,8 +24,8 @@
 			    <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">{{$t('menu.about')}}</a></el-menu-item>
 			  </el-menu>
 		  </el-col>
-		  <el-col :span="4" align="right">
-			  <el-select v-model="value" placeholder="请选择" @change="changeLanguage" class="maxlangW">
+		  <el-col :xs="6" :sm="6" :md="4" :lg="2" :xl="2">
+			  <el-select v-model="value" placeholder="请选择" @change="changeLanguage" class="maxlangW" style="border-radius: 30px">
 			  <el-option
 				v-for="item in langs"
 				:key="item.value"
@@ -34,11 +34,15 @@
 			  </el-option>
 			</el-select>
 		  </el-col>
+		  <el-col :xs="3" :offset="7" class="hidden-sm-and-up">
+		  			<i class="el-icon-s-fold"></i>
+		  </el-col>
 		</el-row>
 	</div>
 </template>
 
 <script>
+  import 'element-ui/lib/theme-chalk/display.css'
 	export default {
 	    data() {
 	      return {
@@ -77,6 +81,12 @@
 </script>
 
 <style scoped="scoped">
+
+  .el-icon-s-fold{
+    line-height: 60px;
+    font-size: 40px;
+    color: #fff;
+  }
 	.maxlangW{
 		max-width: 80px;
 	}
@@ -87,4 +97,10 @@
 	.el-menu.el-menu--horizontal {
 	   border-bottom: solid 0px #e6e6e6;
 	}
+  @media screen and (max-width: 768px) {
+     /* .maxlangW{
+        padding: 0px;
+        margin: 0px;
+      } */
+  }
 </style>
