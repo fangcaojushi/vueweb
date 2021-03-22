@@ -4,22 +4,22 @@
       <el-col :xs="6" :sm="6" :md="4" :lg="2" :xl="2">
         <img src="@/assets/logo.png" class="logo" />
       </el-col>
-      <el-col :xs="12" :sm="12" :md="16" :lg="20" :xl="20">
+      <el-col :xs="10" :sm="12" :md="16" :lg="20" :xl="20">
         <i class="el-icon-s-fold menubar" @click="openMenu"></i>
-        <el-menu :default-active="activeIndex2" class="el-menu-demo" :mode="menuMode" v-show="menuShow"
+        <el-menu :default-active="$route.path" class="el-menu-demo" :mode="menuMode" v-show="menuShow" router
           @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-          <el-menu-item index="home">{{$t('menu.home')}}</el-menu-item>
+          <el-menu-item index="/">{{$t('menu.home')}}</el-menu-item>
           <el-submenu index="2">
             <template slot="title">{{$t('menu.news')}}</template>
             <el-menu-item index="2-1">选项1</el-menu-item>
             <el-menu-item index="2-2">选项2</el-menu-item>
             <el-menu-item index="2-3">选项3</el-menu-item>
           </el-submenu>
-          <el-menu-item index="3">{{$t('menu.product')}}</el-menu-item>
+          <el-menu-item index="/HelloWorld">{{$t('menu.product')}}</el-menu-item>
           <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">{{$t('menu.about')}}</a></el-menu-item>
         </el-menu>
       </el-col>
-      <el-col :xs="6" :sm="6" :md="4" :lg="2" :xl="2">
+      <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
         <el-select v-model="value" placeholder="请选择" @change="changeLanguage" class="maxlangW"
           style="border-radius: 30px">
           <el-option v-for="item in langs" :key="item.value" :label="item.label" :value="item.value">
@@ -38,7 +38,6 @@
   export default {
     data() {
       return {
-        activeIndex2: '1',
         langs: [{
           value: 'cn',
           label: '中文'
@@ -53,11 +52,20 @@
     },
     watch: {
       $route() {
-        debugger
         if (this.$route.meta.parentPath) {
           this.pagedefault = this.$route.meta.parentPath; // 实现路由切换
         }
       }
+    },
+    created() {
+        let _w = document.documentElement.clientWidth;
+        if(_w<500){
+          this.menuShow = false
+          this.menuMode = "vertical"
+        }else{
+          this.menuShow = true
+          this.menuMode = "horizontal"
+        }
     },
     methods: {
       handleSelect(key, keyPath) {
@@ -82,7 +90,7 @@
 <style scoped="scoped">
   .el-icon-s-fold {
     line-height: 60px;
-    font-size: 40px;
+    font-size: 35px;
     color: #fff;
   }
 
@@ -115,6 +123,9 @@
     }
     .el-menu{
       /* display: none; */
+    }
+    .el-col{
+      padding: 0px;
     }
     .el-menu {
       width: 100%;
